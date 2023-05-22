@@ -16,7 +16,7 @@ on:
          
 
 jobs:
-  test_api:
+  test_ui:
     runs-on: ubuntu-latest
 
     steps:
