@@ -1,0 +1,45 @@
+name: unittest
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - release
+      - main
+  
+
+jobs:
+  test_funcionales:
+      runs-on: ubuntu-latest      
+      steps:        
+        - uses: actions/checkout@v3
+        - name: npm install
+          run: |
+            npm install
+
+        - name: npm install jest and jsdom
+          run: |
+            npm install --save-dev jest
+            npm install jsdom --save-dev
+
+        - name: npm test
+          run: |
+            npm test app.test.js
+
+
+  test_no_funcionales:
+      runs-on: ubuntu-latest      
+      steps:        
+        - uses: actions/checkout@v3
+        - name: npm install
+          run: |
+            npm install
+
+        - name: npm install jest and jsdom
+          run: |
+            npm install --save-dev jest
+            npm install jsdom --save-dev
+
+        - name: npm test
+          run: |
+            npm test eficiencia.test.js
