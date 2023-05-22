@@ -34,5 +34,5 @@ jobs:
         playwright install 
 
     - name: Ejecutar script de sumar
-      continue-on-error: true
+      if: ${{ always() }}
       run: pytest src/test_suites/ui --html=src/report/report.html --self-contained-html
