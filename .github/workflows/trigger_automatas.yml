@@ -35,4 +35,4 @@ jobs:
 
     - name: Ejecutar script de sumar
       if: ${{ always() }}
-      run: pytest src/test_suites/ui --html=src/report/report.html --self-contained-html
+      run: pytest src/test_suites/ui --html=src/report/report.html --self-contained-html --base-url=https://jamesfrontsuma.jamesvalencia1.repl.co/
