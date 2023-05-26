@@ -37,7 +37,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       if: ${{ always() }}
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_TOKEN }}
         name: HTML-report
         path: src/report/
         
@@ -46,6 +46,6 @@ jobs:
       if: ${{ always() }}
       uses: peaceiris/actions-gh-pages@v3.7.3
       with: 
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_TOKEN }}
         publish_dir: './src/report'
         keep_files: true
