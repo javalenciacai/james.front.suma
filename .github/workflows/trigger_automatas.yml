@@ -1,6 +1,7 @@
 name: Ejecución de acciones de TestBoost
 
 on:
+  push:
   pull_request:
     types:
       - closed
@@ -31,3 +32,11 @@ jobs:
     - name: Ejecutar script de sumar
       if: ${{ always() }}
       run: pytest src/test_suites/ui --html=src/report/report.html --self-contained-html --base-url=https://jamesfrontsuma${{ github.ref }}.jamesvalencia1.repl.co/
+
+
+    # Publish HTML report
+    - uses: actions/upload-artifact@v3
+      if: ${{ always() }}
+      with:
+        name: HTML-report
+        path: src/report/
